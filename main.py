@@ -5,23 +5,20 @@ from stadistics import top_N_deaths, top_N_cases, top_perc_deaths
 from buildHTML import generateHTML
 import sys
 import webbrowser
+import pandas as pd
 
-N = int(sys.argv[1])
-#N = 5
+#N = int(sys.argv[1])
+N = 5
 
 urlDescarga = 'https://opendata.ecdc.europa.eu/covid19/casedistribution/csv'
 pathDestino = 'dataset.csv'
+pathpoblaciones = 'poblaciones.csv'
 
-dowload_dataset(urlDescarga, pathDestino)
-dt = datasetPreparement(pathDestino)
+#dowload_dataset(urlDescarga, pathDestino)
+dt = datasetPreparement(pathDestino, pathpoblaciones)
 
 top_deaths = top_N_cases(dt, N)
 top_cases = top_N_deaths(dt, N)
-
-if 'United_States_of_America' in top_deaths:
-    top_deaths.remove('United_States_of_America')
-if 'United_States_of_America' in top_cases:
-    top_cases.remove('United_States_of_America')
 
 start_date = '02/2020'
 

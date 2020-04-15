@@ -25,7 +25,7 @@ def print_label(dataset, ArrayCountries, label, date, show = False):
     plt.figure(figsize=(7.5, 6))
     for i in ArrayCountries:
         dt_aux = dataset[dataset['countriesAndTerritories'] == i]
-        dt_aux[label][date:].plot(label=i + ' '+ label)
+        dt_aux[label+'Pop'][date:].plot(label=i + ' '+ label)
 
     plt.legend()
     if show:

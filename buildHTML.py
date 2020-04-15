@@ -9,59 +9,25 @@ def generateHTML (countries, percentage):
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .column {
-      float: left;
-      width: 50%;
-      padding: 5px;
-    }
-
-    /* Clearfix (clear floats) */
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-    
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
-      text-align:center;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Covid evolution up to date</title>
     </head>
     <body>
         <center>
-            <h1><p>Report of: <span id="datetime"></span></p></h1>
+            <h1><p>Report of covid-19 evolution: <span id="datetime"></span></p></h1>
             <script>
                 var dt = new Date();
                 document.getElementById("datetime").innerHTML = dt.toLocaleString();
             </script>
             <div class="row">
                   <div class="column">
-                      <h2>Cases</h2>
-                      <p>Number of cases evolution in the top countries</p>
+                      <h2>Covid-19 cases</h2>
+                      <p>Number of cases evolution in the top countries, considering the total of the population of the country</p>
                       <img src="images/cases.png" alt="cases evolution">
                   </div>
                   <div class="column">
-                      <h2>Deaths</h2>
-                      <p>Number of deaths evolution in the top countries</p>
+                      <h2>Covid-19 deaths</h2>
+                      <p>Number of deaths evolution in the top countries, considering the total of the population of the country</p>
                       <img src="images/deaths.png" alt="deaths evolution">
                   </div>
             </div>

@@ -3,41 +3,7 @@
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .column {
-      float: left;
-      width: 50%;
-      padding: 5px;
-    }
-
-    /* Clearfix (clear floats) */
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-    
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
-      text-align:center;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Covid evolution up to date</title>
     </head>
     <body>
@@ -50,12 +16,12 @@
             <div class="row">
                   <div class="column">
                       <h2>Cases</h2>
-                      <p>Number of cases evolution in the top countries</p>
+                      <p>Number of cases evolution in the top countries, considering the total of the population of the country</p>
                       <img src="images/cases.png" alt="cases evolution">
                   </div>
                   <div class="column">
                       <h2>Deaths</h2>
-                      <p>Number of deaths evolution in the top countries</p>
+                      <p>Number of deaths evolution in the top countries, considering the total of the population of the country</p>
                       <img src="images/deaths.png" alt="deaths evolution">
                   </div>
             </div>
@@ -70,7 +36,7 @@
             <th>Percentage</th>
           </tr>
           <tr>
-          <tr><td>Gambia</td><td>0.11 %</td></tr><tr><td>Malawi</td><td>0.12 %</td></tr><tr><td>Guyana</td><td>0.12 %</td></tr><tr><td>United_Kingdom</td><td>0.13 %</td></tr><tr><td>Italy</td><td>0.13 %</td></tr><tr><td>Belgium</td><td>0.13 %</td></tr><tr><td>Mauritania</td><td>0.14 %</td></tr><tr><td>France</td><td>0.15 %</td></tr><tr><td>Northern_Mariana_Islands</td><td>0.15 %</td></tr><tr><td>Sudan</td><td>0.16 %</td></tr><tr><td>Algeria</td><td>0.16 %</td></tr><tr><td>Bahamas</td><td>0.16 %</td></tr><tr><td>Sint_Maarten</td><td>0.17 %</td></tr><tr><td>Zimbabwe</td><td>0.18 %</td></tr><tr><td>Burundi</td><td>0.20 %</td></tr><tr><td>Spain</td><td>0.10 %</td></tr>
+          <tr><td>Spain</td><td>0.10 %</td></tr><tr><td>Belize</td><td>0.11 %</td></tr><tr><td>Malawi</td><td>0.12 %</td></tr><tr><td>Guyana</td><td>0.12 %</td></tr><tr><td>United_Kingdom</td><td>0.13 %</td></tr><tr><td>Italy</td><td>0.13 %</td></tr><tr><td>Belgium</td><td>0.13 %</td></tr><tr><td>Mauritania</td><td>0.14 %</td></tr><tr><td>France</td><td>0.15 %</td></tr><tr><td>Northern_Mariana_Islands</td><td>0.15 %</td></tr><tr><td>Sudan</td><td>0.16 %</td></tr><tr><td>Algeria</td><td>0.16 %</td></tr><tr><td>Bahamas</td><td>0.16 %</td></tr><tr><td>Sint_Maarten</td><td>0.17 %</td></tr><tr><td>Zimbabwe</td><td>0.18 %</td></tr><tr><td>Burundi</td><td>0.20 %</td></tr>
 
         
         </table>

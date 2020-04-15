@@ -39,7 +39,7 @@ def top_perc_deaths(dataset, N):
     top_values2 = [casos[i] for i in top_idx]
 
     index_esp = paises.index('Spain')
-    top_values1.append('Spain')
-    top_values2.append(casos[index_esp])
+    top_values1.insert(0,'Spain')
+    top_values2.insert(0,casos[index_esp])
 
     return top_values1, top_values2
