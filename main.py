@@ -30,4 +30,4 @@ generateHTML(countries, percentage)
 
 ESP_evolution(dt, start_date)
 
-webbrowser.open_new_tab('docs/index.html')
+webbrowser.open_new_tab('index.html')

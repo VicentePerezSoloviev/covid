@@ -2,14 +2,14 @@
 #!python
 
 def generateHTML (countries, percentage):
-    htmFile = open("docs/index.html", "w")
+    htmFile = open("index.html", "w")
     htmFile.write(
     """
     <!DOCTYPE html>
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Covid evolution up to date</title>
     </head>
     <body>
@@ -23,12 +23,12 @@ def generateHTML (countries, percentage):
                   <div class="column">
                       <h2>Covid-19 cases</h2>
                       <p>Number of cases evolution in the top countries, considering the total of the population of the country</p>
-                      <img src="../images/cases.png" alt="cases evolution">
+                      <img src="images/cases.png" alt="cases evolution">
                   </div>
                   <div class="column">
                       <h2>Covid-19 deaths</h2>
                       <p>Number of deaths evolution in the top countries, considering the total of the population of the country</p>
-                      <img src="../images/deaths.png" alt="deaths evolution">
+                      <img src="images/deaths.png" alt="deaths evolution">
                   </div>
             </div>
             
@@ -56,7 +56,7 @@ def generateHTML (countries, percentage):
                   </div>
                   <div class="column">
                     <h2>Spanish evolution</h2>
-                    <img src="../images/spain.png" alt="spanish evolution">
+                    <img src="images/spain.png" alt="spanish evolution">
                   </div>
             </div>
             
