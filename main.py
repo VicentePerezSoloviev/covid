@@ -6,8 +6,8 @@ from buildHTML import generateHTML
 import sys
 import webbrowser
 
-N = int(sys.argv[1])
-#N = 5
+#N = int(sys.argv[1])
+N = 5
 
 urlDescarga = 'https://opendata.ecdc.europa.eu/covid19/casedistribution/csv'
 pathDestino = 'dataset.csv'

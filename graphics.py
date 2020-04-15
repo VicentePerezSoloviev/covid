@@ -22,7 +22,7 @@ def print_cases_evolution(dataset, ArrayCountries, date, show = False):
     print_label(dataset, ArrayCountries, 'cases', date, show)
 
 def print_label(dataset, ArrayCountries, label, date, show = False):
-    plt.figure(figsize=(7.5, 6))
+    plt.figure(figsize=(6, 5))
     for i in ArrayCountries:
         dt_aux = dataset[dataset['countriesAndTerritories'] == i]
         dt_aux[label+'Pop'][date:].plot(label=i + ' '+ label)
