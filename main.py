@@ -5,7 +5,6 @@ from stadistics import top_N_deaths, top_N_cases, top_perc_deaths
 from buildHTML import generateHTML
 import sys
 import webbrowser
-import pandas as pd
 
 #N = int(sys.argv[1])
 N = 5

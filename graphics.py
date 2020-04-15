@@ -31,7 +31,7 @@ def print_label(dataset, ArrayCountries, label, date, show = False):
     if show:
         plt.show()
 
-    plt.savefig('images/' + label + '.png')
+    plt.savefig('docs/images/' + label + '.png')
 
 def check_siglas (dataset, ArrayCountries):
     categorias = dataset['countriesAndTerritories'].value_counts()
@@ -55,4 +55,4 @@ def ESP_evolution(dataset, date, show=False):
     if show:
         plt.show()
 
-    plt.savefig('images/spain.png')
+    plt.savefig('docs/images/spain.png')
