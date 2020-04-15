@@ -7,30 +7,34 @@ import matplotlib.pyplot as plt
 Format ArrayCountries: countries tu print
 [['ESP'], ['ITA']...]
 '''
-def print_death_evolution(dataset, ArrayCountries):
+def print_death_evolution(dataset, ArrayCountries, date, show = False):
     flag, array = check_siglas(dataset, ArrayCountries)
     if not flag:
         raise Exception('The following acronyms are not correct: ', array)
 
-    print_label(dataset, ArrayCountries, 'deaths')
+    print_label(dataset, ArrayCountries, 'deaths', date, show)
 
-def print_cases_evolution(dataset, ArrayCountries):
+def print_cases_evolution(dataset, ArrayCountries, date, show = False):
     flag, array = check_siglas(dataset, ArrayCountries)
     if not flag:
         raise Exception('The following acronyms are not correct: ', array)
 
-    print_label(dataset, ArrayCountries, 'cases')
+    print_label(dataset, ArrayCountries, 'cases', date, show)
 
-def print_label(dataset, ArrayCountries, label):
+def print_label(dataset, ArrayCountries, label, date, show = False):
+    plt.figure(figsize=(7.5, 6))
     for i in ArrayCountries:
-        dt_aux = dataset[dataset['countryterritoryCode'] == i]
-        dt_aux[label].plot(figsize=(10, 8), label=i + label)
+        dt_aux = dataset[dataset['countriesAndTerritories'] == i]
+        dt_aux[label][date:].plot(label=i + ' '+ label)
 
     plt.legend()
-    plt.show()
+    if show:
+        plt.show()
+
+    plt.savefig(label + '.png')
 
 def check_siglas (dataset, ArrayCountries):
-    categorias = dataset['countryterritoryCode'].value_counts()
+    categorias = dataset['countriesAndTerritories'].value_counts()
 
     flag = True
     arrayFalses = []
