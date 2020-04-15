@@ -2,7 +2,7 @@
 #!python
 
 def generateHTML (countries, percentage):
-    htmFile = open("report.html", "w")
+    htmFile = open("docs/index.html", "w")
     htmFile.write(
     """
     <!DOCTYPE html>
