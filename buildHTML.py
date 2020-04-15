@@ -1,8 +1,6 @@
 #!/usr/bin/python
 #!python
 
-import sys
-
 def generateHTML (countries, percentage):
     htmFile = open("report.html", "w")
     htmFile.write(
@@ -59,16 +57,18 @@ def generateHTML (countries, percentage):
                   <div class="column">
                       <h2>Cases</h2>
                       <p>Number of cases evolution in the top countries</p>
-                      <img src="cases.png" alt="cases evolution">
+                      <img src="images/cases.png" alt="cases evolution">
                   </div>
                   <div class="column">
                       <h2>Deaths</h2>
                       <p>Number of deaths evolution in the top countries</p>
-                      <img src="deaths.png" alt="deaths evolution">
+                      <img src="images/deaths.png" alt="deaths evolution">
                   </div>
             </div>
             
-        <h2>Percentage of deaths by cases</h2>
+            <div class="row">
+                  <div class="column">
+                  <h2>Percentage of deaths by cases</h2>
         
         <table>
           <tr>
@@ -86,6 +86,15 @@ def generateHTML (countries, percentage):
 
         
         </table>
+                      
+                  </div>
+                  <div class="column">
+                    <h2>Spanish evolution</h2>
+                    <img src="images/spain.png" alt="spanish evolution">
+                  </div>
+            </div>
+            
+        
         </center>
     
     </body>
