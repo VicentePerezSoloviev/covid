@@ -33,6 +33,21 @@ def generateHTML (countries, percentage):
             </div>
             
             <div class="row">
+            
+                <div class="column">
+                  <h2>Covid-19 evolution per CCAA Spain</h2>
+                  <p>Number of cases evolution in the top CCAA in Spain, considering the total of the population</p>
+                  <img src="images/ccaa.png" alt="cases evolution ccaa">
+                  </div>
+                  
+                  <div class="column">
+                    <h2>Spanish evolution</h2>
+                    <p>Number of cases and deaths evolution in Spain</p>
+                    <img src="images/spain.png" alt="spanish evolution">
+                  </div>
+            </div>
+            
+            <div class="row">
                   <div class="column">
                   <h2>Percentage of deaths by cases</h2>
         
@@ -55,8 +70,6 @@ def generateHTML (countries, percentage):
                       
                   </div>
                   <div class="column">
-                    <h2>Spanish evolution</h2>
-                    <img src="images/spain.png" alt="spanish evolution">
                   </div>
             </div>
             

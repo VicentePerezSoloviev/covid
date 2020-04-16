@@ -43,3 +43,13 @@ def top_perc_deaths(dataset, N):
     top_values2.insert(0,casos[index_esp])
 
     return top_values1, top_values2
+
+def top_N_CCAA (dtCCAA, N):
+    a = list(dtCCAA.sum())
+    top_idx = np.argsort(a)[-N:]
+
+    columnas = list(dtCCAA.columns)
+    retornar = []
+    for i in top_idx:
+        retornar.append(columnas[i])
+    return retornar

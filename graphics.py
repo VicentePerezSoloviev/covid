@@ -25,7 +25,7 @@ def print_label(dataset, ArrayCountries, label, date, show = False):
     plt.figure(figsize=(6, 5))
     for i in ArrayCountries:
         dt_aux = dataset[dataset['countriesAndTerritories'] == i]
-        dt_aux[label+'Pop'][date:].plot(label=i + ' '+ label)
+        dt_aux[label+'Pop'][date:].plot(label=i)
 
     plt.legend()
     if show:
@@ -47,7 +47,7 @@ def check_siglas (dataset, ArrayCountries):
     return flag, arrayFalses
 
 def ESP_evolution(dataset, date, show=False):
-    plt.figure(figsize=(7.5, 6))
+    plt.figure(figsize=(6, 5))
     dt_aux = dataset[dataset['countriesAndTerritories'] == 'Spain']
     dt_aux['cases'][date:].plot(label='cases', color = 'red')
     dt_aux['deaths'][date:].plot(label='deaths', color ='black')
@@ -58,3 +58,14 @@ def ESP_evolution(dataset, date, show=False):
 
     plt.savefig('docs/images/spain.png')
     plt.savefig('images/spain.png')
+
+def CCAA_evo (dataset, ccaa, show=False):
+    plt.figure(figsize=(6, 5))
+    dataset[ccaa].plot()
+
+    plt.legend()
+    if show:
+        plt.show()
+
+    plt.savefig('docs/images/ccaa.png')
+    plt.savefig('images/ccaa.png')

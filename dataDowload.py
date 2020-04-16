@@ -28,3 +28,35 @@ def datasetPreparement(pathdestino, pathpoblaciones):
     dt['casesPop'] = dt['cases'].div(dt['PopTotal'])*10
 
     return dt
+
+def datasetCCAA(urldescarga, pathdestino):
+    dowload_dataset(urldescarga, pathdestino)
+
+    dt = pd.read_csv(pathdestino)
+    del (dt['cod_ine'])
+
+    CCAA = list(dt['CCAA'])
+    fechas = list(dt.columns)[1:]
+    dt_filter = pd.DataFrame(columns=['datetime'] + CCAA)
+    del (dt_filter['Total'])
+    CCAA.remove('Total')
+
+    dt_filter['datetime'] = fechas
+    dt_filter = dt_filter.set_index('datetime')
+
+    for i in CCAA:
+        datos = list(dt[dt['CCAA'] == i].values)[0][1:]
+        dt_filter[i] = datos
+
+    dt_poblaciones_ccaa = pd.read_csv(r'2915sc.csv', delimiter=';', engine='python')
+
+    for i in CCAA:
+        datos = list(dt_filter[i])
+        poblacion = int(dt_poblaciones_ccaa[dt_poblaciones_ccaa['Place'] == i]['Population'])
+        for j in range(1,len(datos)):
+            datos[-j] = datos[-j] - datos[-j-1]
+        for j in range(len(datos)):
+            datos[j] = datos[j] / poblacion
+        dt_filter[i] = datos
+
+    return dt_filter
