@@ -37,4 +37,4 @@ CCAA_evo(dt_CCAA, top_ccaa)
 
 generateHTML(countries, percentage)
 
-webbrowser.open_new_tab('index.html')
+#webbrowser.open_new_tab('index.html')
