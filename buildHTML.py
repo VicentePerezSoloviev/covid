@@ -36,7 +36,7 @@ def generateHTML (countries, percentage):
             
                 <div class="column">
                   <h2>Covid-19 evolution per CCAA Spain</h2>
-                  <p>Number of cases evolution in the top CCAA in Spain, considering the total of the population</p>
+                  <p>Number of cases evolution in the top CCAA in Spain, considering the total of the population. Also Galicia is added to show a comparison, despite the fact that is not one of the most affected CCAA</p>
                   <img src="images/ccaa.png" alt="cases evolution ccaa">
                   </div>
                   
