@@ -24,8 +24,9 @@ def datasetPreparement(pathdestino, pathpoblaciones):
     dt_poblaciones = pd.read_csv(pathpoblaciones)
     dt = dt.join(dt_poblaciones.set_index('Location'), on='countriesAndTerritories')
 
-    dt['deathsPop'] = dt['deaths'].div(dt['PopTotal'])*10
-    dt['casesPop'] = dt['cases'].div(dt['PopTotal'])*10
+    #population is in thousands of habitants
+    dt['deathsPop'] = dt['deaths'].div(dt['PopTotal'])/10
+    dt['casesPop'] = dt['cases'].div(dt['PopTotal'])/10
 
     return dt
 
