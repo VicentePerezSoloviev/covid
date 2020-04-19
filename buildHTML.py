@@ -21,12 +21,12 @@ def generateHTML (countries, percentage):
             </script>
             <div class="row">
                   <div class="column">
-                      <h2>Covid-19 cases</h2>
+                      <h2>COVID-19 daily cases</h2>
                       <p>Time evolution of COVID cases per population (%) for the top countries</p>
                       <img src="images/cases.png" alt="cases evolution">
                   </div>
                   <div class="column">
-                      <h2>Covid-19 deaths</h2>
+                      <h2>COVID-19 daily deaths</h2>
                       <p>Time evolution of deaths per population (%) for the top countries</p>
                       <img src="images/deaths.png" alt="deaths evolution">
                   </div>
@@ -35,13 +35,13 @@ def generateHTML (countries, percentage):
             <div class="row">
             
                 <div class="column">
-                  <h2>Covid-19 evolution per CCAA Spain</h2>
+                  <h2>COVID-19 daily evolution per CCAA Spain</h2>
                   <p>Time evolution of COVID cases per CCAA population (%) for the top CCAA in Spain. Galicia is added to show for comparison, despite the fact that is not one of the most affected CCAA</p>
                   <img src="images/ccaa.png" alt="cases evolution ccaa">
                   </div>
                   
                   <div class="column">
-                    <h2>Spanish evolution</h2>
+                    <h2>Spanish daily evolution and prediction for next 10 days</h2>
                     <p>Number of cases and deaths evolution in Spain</p>
                     <img src="images/spain.png" alt="spanish evolution">
                   </div>
@@ -49,7 +49,7 @@ def generateHTML (countries, percentage):
             
             <div class="row">
                   <div class="column">
-                  <h2>Percentage of deaths by cases</h2>
+                  <h2>Percentage of deaths per cases</h2>
         
         <table>
           <tr>

@@ -2,6 +2,9 @@
 #!python
 
 import matplotlib.pyplot as plt
+from prediction import prediction_AutoRegressive
+import pandas as pd
+import datetime
 
 '''
 Format ArrayCountries: countries tu print
@@ -46,11 +49,21 @@ def check_siglas (dataset, ArrayCountries):
 
     return flag, arrayFalses
 
-def ESP_evolution(dataset, date, show=False):
+def ESP_evolution(dataset, date, predcasos, predmuertes, show=False):
     plt.figure(figsize=(6, 5))
-    dt_aux = dataset[dataset['countriesAndTerritories'] == 'Spain']
-    dt_aux['cases'][date:].plot(label='cases', color = 'red')
-    dt_aux['deaths'][date:].plot(label='deaths', color ='black')
+    dt_aux = dataset[dataset['countriesAndTerritories'] == 'Spain'][date:]
+
+    for i in range(len(predmuertes)):
+        last_date = dt_aux.iloc[[-1]].index
+        last_date = last_date + datetime.timedelta(days=1)
+
+        aux = {'cases': predcasos[i], 'deaths': predmuertes[i]}
+        dt_aux = dt_aux.append(pd.DataFrame(aux, index=last_date))
+
+    dt_aux['cases'].plot(label='_nolegend_', color='green')
+    dt_aux['cases'][:-len(predmuertes)].plot(label='cases', color = 'red')
+    dt_aux['deaths'].plot(label='prediction', color='green')
+    dt_aux['deaths'][:-len(predmuertes)].plot(label='deaths', color = 'black')
 
     plt.legend()
     if show:

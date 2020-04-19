@@ -29,7 +29,7 @@ def top_perc_deaths(dataset, N):
     total = []
     for i in categorias:
         dt_aux = dataset[dataset['countriesAndTerritories'] == i]
-        total.append([i, sum(dt_aux['deaths'])/sum(dt_aux['cases'])])
+        total.append([i, sum(dt_aux['deaths'])*100/sum(dt_aux['cases'])])
 
     casos = [row[1] for row in total]
     paises = [row[0] for row in total]

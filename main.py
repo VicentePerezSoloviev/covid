@@ -3,6 +3,7 @@ from dataDowload import datasetPreparement, dowload_dataset, datasetCCAA
 from graphics import print_cases_evolution, print_death_evolution, ESP_evolution, CCAA_evo
 from stadistics import top_N_deaths, top_N_cases, top_perc_deaths, top_N_CCAA
 from buildHTML import generateHTML
+from prediction import prediction_AutoRegressive
 import sys
 import webbrowser
 
@@ -28,7 +29,8 @@ print_cases_evolution(dt, top_cases, start_date)
 
 countries, percentage = top_perc_deaths(dt, N*3)
 
-ESP_evolution(dt, start_date)
+predcasos, predmuertes = prediction_AutoRegressive(pathDestino, 10)
+ESP_evolution(dt, '03/2020', predcasos, predmuertes)
 
 dt_CCAA = datasetCCAA(urlDescargaCCAA, pathDestinoCCAA)
 top_ccaa = top_N_CCAA (dt_CCAA, N-2) + ['Galicia']
