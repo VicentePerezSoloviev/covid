@@ -29,7 +29,7 @@ print_cases_evolution(dt, top_cases, start_date)
 
 countries, percentage = top_perc_deaths(dt, N*3)
 
-predcasos, predmuertes = prediction_AutoRegressive(pathDestino, 10)
+predcasos, predmuertes = prediction_AutoRegressive(pathDestino, 5)
 ESP_evolution(dt, '03/2020', predcasos, predmuertes)
 
 dt_CCAA = datasetCCAA(urlDescargaCCAA, pathDestinoCCAA)
