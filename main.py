@@ -3,7 +3,7 @@ from dataDowload import datasetPreparement, dowload_dataset, datasetCCAA
 from graphics import print_cases_evolution, print_death_evolution, ESP_evolution, CCAA_evo
 from stadistics import top_N_deaths, top_N_cases, top_perc_deaths, top_N_CCAA
 from buildHTML import generateHTML
-from prediction import prediction_AutoRegressive, prediction_AutoRegressive2
+from prediction import prediction_AutoRegressive2, AR_model_persistence_resi_err
 import sys
 import webbrowser
 

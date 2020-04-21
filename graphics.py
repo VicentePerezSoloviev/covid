@@ -2,7 +2,6 @@
 #!python
 
 import matplotlib.pyplot as plt
-from prediction import prediction_AutoRegressive
 import pandas as pd
 import datetime
 
