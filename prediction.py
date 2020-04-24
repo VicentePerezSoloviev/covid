@@ -158,4 +158,3 @@ def prediction_AutoRegressive(casos, num_predicciones):
 
     return casosPred
 
-

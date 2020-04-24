@@ -22,7 +22,7 @@ dt = datasetPreparement(pathDestino, pathpoblaciones)
 top_deaths = top_N_cases(dt, N)
 top_cases = top_N_deaths(dt, N)
 
-start_date = '02/2020'
+start_date = '15/02/2020'
 
 print_death_evolution(dt, top_deaths, start_date)
 print_cases_evolution(dt, top_cases, start_date)
