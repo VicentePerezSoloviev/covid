@@ -28,6 +28,9 @@ def datasetPreparement(pathdestino, pathpoblaciones):
     dt['deathsPop'] = dt['deaths'].div(dt['PopTotal']*10)
     dt['casesPop'] = dt['cases'].div(dt['PopTotal']*10)
 
+    for i in ['cases', 'deaths', 'deathsPop', 'casesPop']:
+        dt[i] = dt[i].abs()
+
     return dt
 
 def datasetCCAA(urldescarga, pathdestino):
