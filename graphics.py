@@ -9,25 +9,25 @@ import datetime
 Format ArrayCountries: countries tu print
 [['ESP'], ['ITA']...]
 '''
-def print_death_evolution(dataset, ArrayCountries, date, show = False):
+def print_death_evolution(dataset, ArrayCountries, date, fin, show = False):
     flag, array = check_siglas(dataset, ArrayCountries)
     if not flag:
         raise Exception('The following acronyms are not correct: ', array)
 
-    print_label(dataset, ArrayCountries, 'deaths', date, show)
+    print_label(dataset, ArrayCountries, 'deaths', date, fin, show)
 
-def print_cases_evolution(dataset, ArrayCountries, date, show = False):
+def print_cases_evolution(dataset, ArrayCountries, date, fin, show = False):
     flag, array = check_siglas(dataset, ArrayCountries)
     if not flag:
         raise Exception('The following acronyms are not correct: ', array)
 
-    print_label(dataset, ArrayCountries, 'cases', date, show)
+    print_label(dataset, ArrayCountries, 'cases', date, fin, show)
 
-def print_label(dataset, ArrayCountries, label, date, show = False):
+def print_label(dataset, ArrayCountries, label, date, fin, show = False):
     plt.figure(figsize=(6, 5))
     for i in ArrayCountries:
         dt_aux = dataset[dataset['countriesAndTerritories'] == i]
-        dt_aux[label+'Pop'][date:].plot(label=i)
+        dt_aux[label+'Pop'][date:fin].plot(label=i)
 
     plt.legend()
     if show:
@@ -48,9 +48,9 @@ def check_siglas (dataset, ArrayCountries):
 
     return flag, arrayFalses
 
-def ESP_evolution(dataset, date, predcasos, predmuertes, show=False):
+def ESP_evolution(dataset, date, fin, predcasos, predmuertes, show=False):
     plt.figure(figsize=(6, 5))
-    dt_aux = dataset[dataset['countriesAndTerritories'] == 'Spain'][date:]
+    dt_aux = dataset[dataset['countriesAndTerritories'] == 'Spain'][date:fin]
 
     for i in range(len(predmuertes)):
         last_date = dt_aux.iloc[[-1]].index

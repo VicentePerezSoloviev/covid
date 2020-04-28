@@ -6,6 +6,7 @@ from buildHTML import generateHTML
 from prediction import prediction_AutoRegressive2, AR_model_persistence_resi_err
 import sys
 import webbrowser
+import datetime
 
 #N = int(sys.argv[1])
 N = 5
@@ -22,15 +23,17 @@ dt = datasetPreparement(pathDestino, pathpoblaciones)
 top_deaths = top_N_cases(dt, N)
 top_cases = top_N_deaths(dt, N)
 
+yesterday = datetime.datetime.now() + datetime.timedelta(days=-1)
+yesterday = yesterday.strftime("%d/%m/%Y")
 start_date = '15/02/2020'
 
-print_death_evolution(dt, top_deaths, start_date)
-print_cases_evolution(dt, top_cases, start_date)
+print_death_evolution(dt, top_deaths, start_date, yesterday)
+print_cases_evolution(dt, top_cases, start_date, yesterday)
 
 countries, percentage = top_perc_deaths(dt, N*3)
 
 predcasos, predmuertes = prediction_AutoRegressive2(pathDestino, 4)
-ESP_evolution(dt, '03/2020', predcasos, predmuertes)
+ESP_evolution(dt, '03/2020', yesterday, predcasos, predmuertes)
 
 dt_CCAA = datasetCCAA(urlDescargaCCAA, pathDestinoCCAA)
 top_ccaa = top_N_CCAA (dt_CCAA, N-2) + ['Galicia']
