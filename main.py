@@ -3,7 +3,7 @@ from dataDowload import datasetPreparement, dowload_dataset, datasetCCAA
 from graphics import print_cases_evolution, print_death_evolution, ESP_evolution, CCAA_evo
 from stadistics import top_N_deaths, top_N_cases, top_perc_deaths, top_N_CCAA
 from buildHTML import generateHTML
-from prediction import prediction_AutoRegressive2, AR_model_persistence_resi_err
+from prediction import prediction_AutoRegressive2, AR_model_persistence_resi_err, SARIMA
 import sys
 import webbrowser
 import datetime
@@ -23,7 +23,7 @@ dt = datasetPreparement(pathDestino, pathpoblaciones)
 top_deaths = top_N_cases(dt, N)
 top_cases = top_N_deaths(dt, N)
 
-yesterday = datetime.datetime.now() + datetime.timedelta(days=-1)
+yesterday = datetime.datetime.now()  + datetime.timedelta(days=-1)
 yesterday = yesterday.strftime("%d/%m/%Y")
 start_date = '15/02/2020'
 
@@ -33,6 +33,7 @@ print_cases_evolution(dt, top_cases, start_date, yesterday)
 countries, percentage = top_perc_deaths(dt, N*3)
 
 predcasos, predmuertes = prediction_AutoRegressive2(pathDestino, 4)
+#predcasos, predmuertes = SARIMA(pathDestino, 4)
 ESP_evolution(dt, '03/2020', yesterday, predcasos, predmuertes)
 
 dt_CCAA = datasetCCAA(urlDescargaCCAA, pathDestinoCCAA)

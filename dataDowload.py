@@ -31,6 +31,8 @@ def datasetPreparement(pathdestino, pathpoblaciones):
     for i in ['cases', 'deaths', 'deathsPop', 'casesPop']:
         dt[i] = dt[i].abs()
 
+    #dt.to_csv(pathdestino, index=True)
+
     return dt
 
 def datasetCCAA(urldescarga, pathdestino):

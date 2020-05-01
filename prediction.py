@@ -158,3 +158,36 @@ def prediction_AutoRegressive(casos, num_predicciones):
 
     return casosPred
 
+def SARIMA(pathdestino, num_predicciones):
+    dt = pd.read_csv(pathdestino)
+
+    dt['datetime'] = pd.to_datetime(dt['dateRep'], format='%d/%m/%Y')
+    dt = dt.set_index('datetime')
+
+    dt = dt.iloc[::-1]
+
+    start_date = '03/2020'
+    dt = dt[start_date:]
+    dt = dt[dt['countriesAndTerritories'] == 'Spain']
+
+    casos = dt['cases']
+    muertes = dt['deaths']
+
+    from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+    s_mod = SARIMAX(casos,
+                    order=(10, 1, 1),
+                    seasonal_order=(1, 0, 0, 12))
+
+    case_predictions = s_mod.fit().predict()
+    case_predictions = list(case_predictions[:num_predicciones].values)
+
+    s_mod = SARIMAX(muertes,
+                    order=(10, 1, 1),
+                    seasonal_order=(1, 0, 0, 12))
+
+    death_predictions = s_mod.fit().predict()
+    death_predictions = list(death_predictions[:num_predicciones].values)
+
+    return case_predictions, death_predictions
+
