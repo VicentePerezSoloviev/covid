@@ -23,7 +23,7 @@ dt = datasetPreparement(pathDestino, pathpoblaciones)
 top_deaths = top_N_cases(dt, N)
 top_cases = top_N_deaths(dt, N)
 
-yesterday = datetime.datetime.now()  + datetime.timedelta(days=-1)
+yesterday = datetime.datetime.now() # + datetime.timedelta(days=-1)
 yesterday = yesterday.strftime("%d/%m/%Y")
 start_date = '15/02/2020'
 

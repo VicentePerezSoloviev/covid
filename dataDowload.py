@@ -44,8 +44,8 @@ def datasetCCAA(urldescarga, pathdestino):
     CCAA = list(dt['CCAA'])
     fechas = list(dt.columns)[1:]
     dt_filter = pd.DataFrame(columns=['datetime'] + CCAA)
-    del (dt_filter['Total'])
-    CCAA.remove('Total')
+    #del (dt_filter['Total'])
+    #CCAA.remove('Total')
 
     dt_filter['datetime'] = fechas
     dt_filter = dt_filter.set_index('datetime')
